@@ -1,0 +1,1 @@
+const GIFTBOX_CONFIG = {songId:"aurora",supabaseUrl:"https://htaccqbjrxjwxfjbdpax.supabase.co",supabaseKey:"sb_publishable_Crem286g2NphGb2-4wJfkA_6PNrzGrL",images:{top:"https://starglow-sp.com/Aurora/image/jacket/product01.jpg",service:"https://starglow-sp.com/Aurora/image/jacket/product01.jpg"}};

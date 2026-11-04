@@ -1,0 +1,141 @@
+:root{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#37414b;background:#fafbfc}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 90% 0%,#e9f6f6 0%,transparent 36%),radial-gradient(ellipse at 0% 40%,#f4eef9 0%,transparent 42%),#fbfcfc}main{max-width:660px;margin:auto;padding:26px 18px 80px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}a{color:inherit}header a{text-decoration:none;font-size:13px}.eyebrow{font-size:10px;letter-spacing:.22em;color:#8b9aa7}.hero{display:grid;grid-template-columns:112px 1fr;gap:22px;align-items:center;margin:20px 0 32px}.hero img{width:100%;border-radius:4px;box-shadow:0 10px 30px #73858b22}.hero h1{font-family:Georgia,serif;font-weight:400;letter-spacing:.07em;font-size:37px;margin:8px 0}.hero p{font-size:12px;color:#8b96a1;line-height:1.8}.panel,.note{background:#ffffffd9;border:1px solid #e5e9ec;border-radius:14px;padding:20px;box-shadow:0 5px 22px #8299a00b}.nav{display:grid;grid-template-columns:1fr 1fr;gap:11px}.nav a{background:#ffffffb8;border:1px solid #e0e7e9;border-radius:12px;text-decoration:none;padding:19px 13px;display:block}.nav small{display:block;color:#99a7b2;font-size:10px;margin-bottom:12px}.nav strong{font-weight:500}.nav span{float:right;color:#a8b8bf}.subtle{font-size:12px;color:#89949d}.topline{border-top:1px solid #e1e7e9;padding-top:18px;margin-top:24px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:20px 0}button{cursor:pointer;font:inherit}button.primary{background:#5d7987;color:white;border:0;border-radius:9px;padding:12px 18px}button.secondary{background:white;border:1px solid #d9e2e5;color:#607583;border-radius:9px;padding:9px 12px}.note{margin:11px 0;padding:16px}.note-top{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:#98a4ad}.note-content{margin:15px 0;overflow-wrap:anywhere;white-space:pre-wrap;font-size:15px;line-height:1.7}.note-content a{color:#497f99}.note-actions{display:flex;gap:10px;justify-content:space-between;align-items:center}.smile{border:1px solid #dce4e8;background:white;border-radius:20px;padding:7px 12px;color:#85929c}.smile.on{background:#e4f4f0;color:#327f73}.pages{display:flex;justify-content:center;gap:14px;align-items:center;margin-top:20px}.overlay{position:fixed;inset:0;background:#182a3470;display:none;align-items:center;justify-content:center;padding:18px;z-index:10}.overlay.open{display:flex}.modal{width:min(100%,480px);background:white;border-radius:16px;padding:22px}.modal textarea,.panel input{width:100%;padding:13px;border:1px solid #dce3e6;border-radius:9px;font:inherit;font-size:16px}.modal textarea{min-height:125px;resize:vertical}.modal select{width:100%;padding:12px;margin:10px 0;border:1px solid #dce3e6;border-radius:8px;background:white}.modal-buttons{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}.status{font-size:12px;color:#9a6470;min-height:20px}.hide{display:none!important}.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}th,td{border:1px solid #e1e7e9;padding:9px;text-align:right}th:first-child,td:first-child{text-align:left}th{background:#f3f7f8}@media(max-width:370px){.hero{grid-template-columns:94px 1fr}.hero h1{font-size:31px}}
+/* 2026-11-03 requested refinements */
+.hero{display:flex;flex-direction:column;align-items:center;gap:18px;margin:8px 0 32px;text-align:center}.hero h1{font-family:Georgia,"Hiragino Kaku Gothic ProN",serif;font-weight:400;font-size:clamp(27px,7.5vw,42px);letter-spacing:.025em;margin:0}.hero img{width:min(100%,420px);max-width:100%;height:auto;object-fit:contain}.nav{grid-template-columns:1fr;gap:10px}.nav a{padding:17px 20px}.nav strong{font-size:16px}.topline{text-align:center}.note{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:9px;align-items:center;padding:9px 10px;margin:7px 0;border-radius:9px}.note-top{grid-column:1/-1;display:flex;justify-content:space-between;font-size:10px;margin-bottom:5px}.note-content{min-width:0;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;line-height:1.5}.note-content a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.note-actions{display:flex;gap:5px;justify-content:flex-end}.note-actions button{font-size:12px;white-space:nowrap;padding:7px 9px;border-radius:7px}.smile{border:1px solid #dce4e8;background:white;color:#71818c}.smile.on{background:#dcece8;border-color:#91b6aa;color:#356e63}.paste-row{display:flex;justify-content:flex-end;margin-top:8px}.paste-row button{font-size:13px}.modal textarea{min-height:95px}
+@media(max-width:370px){.note{column-gap:5px;padding:8px}.note-actions{gap:4px}.note-actions button{padding:6px 7px;font-size:11px}}
+
+/* Aurora editorial composition and compact gift controls */
+body:has(.home-main){background:radial-gradient(ellipse 90% 25% at 10% 3%,rgba(180,218,228,.52),transparent 76%),radial-gradient(ellipse 75% 30% at 95% 92%,rgba(214,187,233,.48),transparent 78%),radial-gradient(ellipse 65% 20% at 85% 9%,rgba(246,210,225,.45),transparent 80%),linear-gradient(160deg,#fcfdfd,#f7fafb 50%,#fcfbfd)}.home-main{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:stretch;padding:32px 22px 22px;max-width:520px}.home-content{width:100%;margin:auto 0}.home-main .hero{margin:0 0 23px;gap:13px}.home-main .hero h1{display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1.15;font-family:Georgia,"Times New Roman",serif;font-size:initial}.home-main .hero h1 span{font-size:clamp(17px,4.3vw,23px);font-weight:400;letter-spacing:.11em;color:#758a99}.home-main .hero h1 em{font-size:clamp(34px,9vw,51px);font-weight:400;font-style:normal;letter-spacing:.04em;color:#455966}.home-main .hero img{width:min(76vw,300px);max-width:100%;max-height:34svh;object-fit:contain;filter:drop-shadow(0 10px 19px rgba(93,128,148,.17))}.home-main .nav{gap:8px}.home-main .nav a{padding:13px 19px;background:linear-gradient(120deg,rgba(255,255,255,.82),rgba(246,249,252,.77));border:1px solid rgba(205,220,226,.9);box-shadow:0 4px 18px rgba(117,145,160,.06);border-radius:11px;display:flex;align-items:center;justify-content:space-between}.home-main .nav strong{font-family:"Helvetica Neue","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-size:15px;letter-spacing:.055em;font-weight:400;color:#526775}.home-main .nav span{float:none;font-size:14px}.home-main .topline{margin:16px 0 0;padding-top:12px;font-size:10px;letter-spacing:.18em;color:#99a7b2}.home-main #gate{margin-top:8px}.note{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:13px;row-gap:5px;align-items:center;padding:9px 11px}.note-top{grid-column:1/-1;justify-content:flex-start;gap:10px;margin-bottom:0}.note-main{display:flex;align-items:center;min-width:0;gap:8px;padding:4px 5px 4px 10px;border:1px solid #dce8eb;border-radius:8px;background:#f2f8f9}.note-main .note-content{flex:1;min-width:0;margin:0;font-size:13px;color:#4b6472}.note-main .note-content a{color:#4b6472}.note-main .secondary{flex:none;border:0;background:#e3eff2;color:#436b7a;padding:8px 10px;border-radius:6px;font-size:12px}.note .smile{min-width:42px;height:34px;padding:6px 9px;border:1px solid #d2d9dc;background:#fff;color:#7e8990;border-radius:8px;font-size:12px}.note .smile.on{border-color:#88a99f;background:#dcece8;color:#356e63}.note .smile:disabled{opacity:.55}@media(max-height:720px){.home-main .hero img{max-height:29svh;width:min(65vw,250px)}.home-main .hero{gap:8px;margin-bottom:15px}.home-main .nav a{padding:10px 16px}.home-main .nav{gap:6px}}@media(max-width:360px){.note{column-gap:9px}.note-main{gap:4px;padding-left:7px}.note-main .secondary{padding:7px 8px;font-size:11px}}
+
+/* Refined Aurora typography and compact receipt states */
+.home-main .hero h1.album-title{display:block;position:relative;width:max-content;max-width:100%;margin:0 auto 4px;padding:10px 22px 14px;font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(23px,6vw,35px);line-height:1.2;letter-spacing:.04em;white-space:nowrap;color:#526c7d;text-shadow:0 1px 0 #fff,0 3px 18px rgba(157,194,211,.32)}.album-title::before{content:"";position:absolute;inset:0;border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,#b2dadd,#c9b6dd,transparent) 1;pointer-events:none}.album-title::after{content:"✦";position:absolute;right:2px;top:-5px;font-size:12px;color:#b5a9c8;text-shadow:0 0 9px #b4cddf}.home-main .nav{width:min(76vw,300px);max-width:100%;margin:0 auto}.home-main .nav strong{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;font-weight:400;letter-spacing:.055em;font-size:15px}.note-top time::before{content:"★";display:inline-block;margin-right:6px;color:#a8b8c5;font-size:11px}.note-main .note-content{font-size:15px;line-height:1.45}.note-main .secondary{font-size:13px}.note{column-gap:14px}.note .smile{display:inline-flex;align-items:center;justify-content:center;gap:4px;min-width:35px;min-height:35px;height:auto;padding:7px 8px;border:1px solid #cbd7db;border-radius:8px;background:#fff;color:#647985;font-size:12px;white-space:nowrap}.note .smile .checkmark{display:inline-flex;width:16px;height:16px;align-items:center;justify-content:center;border:1.5px solid currentColor;border-radius:4px;font-size:12px;line-height:1}.note .smile .receipt-label{display:none}.note .smile.on{background:#e5f3ef;border-color:#9fc3b7;color:#357769}.note .smile.on .receipt-label{display:inline}.note .smile.on .checkmark{background:#5a9a87;color:#fff;border-color:#5a9a87}.note .smile.on{min-width:106px}@media(max-width:420px){.note{column-gap:10px}.note .smile.on{min-width:0}.note .smile.on .receipt-label{font-size:10px}.note-main .note-content{font-size:14px}.note-main .secondary{font-size:12px}}@media(max-width:350px){.note .smile.on .receipt-label{display:none}}
+
+/* Album typography and pearl-aurora silver light */
+.home-main .hero h1.album-title{display:flex;flex-direction:column;align-items:center;gap:0;white-space:normal;padding:5px 18px 10px;line-height:1.07}.home-main .hero h1.album-title::before{display:none}.home-main .hero h1.album-title::after{right:-7px;top:13px;font-size:15px}.home-main .hero h1.album-title span{font-family:Georgia,"Times New Roman",serif;font-size:clamp(23px,6vw,31px);font-weight:400;letter-spacing:.14em;color:#8995a3;text-shadow:0 1px 0 #fff}.home-main .hero h1.album-title em{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(48px,13vw,69px);font-weight:400;letter-spacing:.015em;line-height:1.08;background:linear-gradient(115deg,#8798aa 5%,#b4c4ce 25%,#6e8b9b 45%,#b6a5c8 68%,#789caa 90%);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 1px #ffffffa8)}body:has(.home-main){background:radial-gradient(ellipse 90% 28% at 18% 1%,#d6edf0a6,transparent 72%),radial-gradient(ellipse 65% 22% at 92% 8%,#e8d8f2a6,transparent 75%),radial-gradient(ellipse 100% 28% at 86% 99%,#d3e8eeb3,transparent 74%),radial-gradient(ellipse 55% 23% at 8% 94%,#eee0f2a3,transparent 76%),#fafbfc}.home-main::before,.home-main::after{content:"";position:absolute;pointer-events:none;z-index:-1;left:-12%;width:124%;height:22%;border-radius:50%;background:linear-gradient(110deg,transparent,#d3e5e78c,#eee1f0a3,#c7d4e0a8,transparent);filter:blur(24px)}.home-main::before{top:-9%;transform:rotate(-8deg)}.home-main::after{bottom:-9%;transform:rotate(8deg)}.note-top time{font-size:13px;letter-spacing:.025em}.note-top time::before{font-size:13px}.gift-guidance{border:1px solid #d7e6e9;border-radius:12px;background:linear-gradient(115deg,#f0f8f8,#f9f6fc);padding:13px 15px;margin:12px 0 19px;box-shadow:0 5px 18px #b4c6d014}.gift-guidance p{margin:5px 0;font-size:14px;line-height:1.65;color:#405e6c;font-weight:500}.gift-guidance .warning{color:#805f6c;margin-top:11px}.gift-guidance small{display:block;margin-top:3px;font-size:12px;color:#6c8390}.note .smile .checkmark{border:0;width:auto;height:auto;font-size:17px}.note .smile.on .checkmark{background:none;color:inherit;border:0}.note .smile.on{min-width:106px}@media(max-width:420px){.gift-guidance p{font-size:13px}.note-top time{font-size:12px}}
+
+/* Pearl white / aurora ref: soft iridescent light, legible silver title */
+body:has(.home-main){
+ background:
+ radial-gradient(ellipse 90% 30% at 6% 5%,rgba(199,232,232,.78) 0%,transparent 79%),
+ radial-gradient(ellipse 80% 34% at 95% 10%,rgba(232,215,240,.69) 0%,transparent 78%),
+ radial-gradient(ellipse 85% 32% at 4% 95%,rgba(241,218,238,.60) 0%,transparent 78%),
+ radial-gradient(ellipse 95% 35% at 95% 94%,rgba(195,230,235,.74) 0%,transparent 79%),
+ linear-gradient(180deg,#f9fbfb 0%,#fff 48%,#fafbfd 100%);
+ background-attachment:fixed;
+}
+.home-main::before,.home-main::after{opacity:.45;filter:blur(36px)}
+.home-main .hero h1.album-title span{color:#7c8998;text-shadow:0 1px 0 rgba(255,255,255,.9)}
+.home-main .hero h1.album-title em{
+ background:linear-gradient(110deg,#536778 0%,#738698 26%,#536d80 47%,#857a98 68%,#526c7e 100%);
+ -webkit-background-clip:text;background-clip:text;
+ -webkit-text-fill-color:transparent;color:#526b7e;
+ text-shadow:none;filter:drop-shadow(0 1px 0 rgba(255,255,255,.55));
+}
+.home-main .nav a{background:rgba(255,255,255,.69);border-color:rgba(196,211,218,.84);box-shadow:0 5px 22px rgba(141,165,179,.07)}
+
+/* Aurora 2.0: visible pearl sheen and layered spectral ribbons in the whitespace */
+body:has(.home-main){
+ background:
+ radial-gradient(ellipse 70% 25% at 0% 3%,rgba(140,215,217,.43),transparent 95%),
+ radial-gradient(ellipse 65% 27% at 100% 7%,rgba(215,179,230,.42),transparent 95%),
+ radial-gradient(ellipse 76% 26% at 4% 96%,rgba(234,182,217,.40),transparent 95%),
+ radial-gradient(ellipse 72% 30% at 99% 98%,rgba(139,211,225,.45),transparent 95%),
+ linear-gradient(180deg,#f5fbfb 0%,#fff 30%,#fff 67%,#f9f7fc 100%);
+ background-attachment:fixed;
+}
+.home-main{position:relative;isolation:isolate;overflow:hidden}
+.home-main::before,.home-main::after{
+ content:"";position:absolute;pointer-events:none;z-index:-1;
+ left:-28%;width:156%;height:170px;border-radius:50%;
+ opacity:1;filter:blur(12px);
+ background:
+ linear-gradient(172deg,transparent 0% 19%,rgba(255,255,255,.88) 27%,rgba(177,224,225,.64) 34%,rgba(213,192,231,.64) 43%,rgba(252,229,239,.72) 50%,rgba(205,222,233,.65) 59%,rgba(255,255,255,.82) 66%,transparent 78%);
+ box-shadow:0 0 65px rgba(199,218,234,.26);
+}
+.home-main::before{top:-48px;transform:rotate(-12deg)}
+.home-main::after{bottom:-58px;transform:rotate(12deg) scaleX(-1)}
+.home-main .home-content{position:relative;z-index:1}
+.home-main .home-content::before,.home-main .home-content::after{
+ content:"";position:absolute;pointer-events:none;z-index:-1;
+ width:115%;left:-7.5%;height:88px;border-radius:50%;
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.7) 13%,rgba(179,219,225,.42) 30%,rgba(238,214,234,.44) 50%,rgba(191,216,229,.45) 72%,rgba(255,255,255,.65) 88%,transparent);
+ filter:blur(22px);
+}
+.home-main .home-content::before{top:-72px;transform:rotate(7deg)}
+.home-main .home-content::after{bottom:-68px;transform:rotate(-7deg)}
+.home-main .hero img{box-shadow:0 15px 36px rgba(110,136,154,.16),0 0 0 7px rgba(255,255,255,.55)}
+.home-main .nav a{background:linear-gradient(125deg,rgba(255,255,255,.87),rgba(249,251,253,.75));box-shadow:0 5px 19px rgba(112,149,168,.1),inset 0 1px 0 rgba(255,255,255,.95)}
+.home-main .topline{position:relative;z-index:1}
+@media(max-height:730px){.home-main::before{top:-85px}.home-main::after{bottom:-100px}}
+
+/* Refined album masthead — editorial typography, no upper ornament line */
+.home-main .hero h1.album-title{position:relative;gap:2px;padding:0 24px 12px;margin:0 auto 5px;overflow:visible}
+.home-main .hero h1.album-title span{font-family:Georgia,"Times New Roman",serif;font-size:clamp(18px,5.1vw,26px);font-variant:small-caps;letter-spacing:.23em;color:#687c8c;font-weight:400;text-shadow:0 1px 0 #fff}
+.home-main .hero h1.album-title em{font-family:"Bodoni MT","Didot","Times New Roman",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(58px,15vw,79px);line-height:1.04;letter-spacing:-.035em;background:linear-gradient(110deg,#435b70 4%,#8197a5 27%,#4c647b 49%,#867c9d 73%,#516f81 96%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#536a7d;filter:drop-shadow(0 2px 1px rgba(255,255,255,.72))}
+.home-main .hero h1.album-title::before{display:none}
+.home-main .hero h1.album-title::after{content:"✧";top:34%;right:0;font-size:19px;color:#b4a4c5;filter:drop-shadow(0 0 5px #d8d2eb)}
+@media(max-width:360px){.home-main .hero h1.album-title em{font-size:clamp(49px,14.5vw,58px)}}
+
+/* Approved 03 + 08 + 09: liquid silver, pearl reflection and stardust */
+.home-main .liquid-title{position:relative;isolation:isolate;width:min(100%,360px);margin:0 auto 0;padding:3px 0 0;text-align:center}
+.home-main .liquid-title::before{content:"";position:absolute;inset:13% -8% 4%;z-index:-1;pointer-events:none;background:linear-gradient(105deg,transparent 8%,rgba(198,231,231,.37) 30%,rgba(226,205,240,.43) 60%,transparent 90%);filter:blur(19px);transform:rotate(-9deg)}
+.home-main .liquid-title h1.album-title{position:relative;z-index:2;margin:0 auto;padding:0;display:flex;flex-direction:column;align-items:center;gap:5px}
+.home-main .liquid-title h1.album-title::before,.home-main .liquid-title h1.album-title::after{display:none}
+.home-main .liquid-title h1.album-title span{font:400 clamp(19px,5vw,26px)/1.15 Georgia,"Times New Roman",serif;letter-spacing:.23em;color:#758c9d;text-shadow:none}
+.home-main .liquid-title h1.album-title em{font:italic 400 clamp(66px,17vw,90px)/1.04 "Bodoni MT",Didot,"Times New Roman",Georgia,serif;letter-spacing:-.045em;background:linear-gradient(180deg,#455e73 0%,#aabecb 18%,#f0f8fa 29%,#667f93 39%,#d6e3e8 48%,#60788f 57%,#425e72 78%,#6f7898 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:#536e81;filter:drop-shadow(0 3px 2px rgba(108,133,154,.22))}
+.home-main .liquid-reflection{position:relative;z-index:1;font:italic 400 clamp(66px,17vw,90px)/.75 "Bodoni MT",Didot,"Times New Roman",Georgia,serif;letter-spacing:-.045em;transform:scaleY(-.33);transform-origin:top;margin-top:-1px;margin-bottom:-29px;background:linear-gradient(180deg,rgba(112,141,161,.55),transparent 85%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.38;filter:blur(1.6px);pointer-events:none}
+.home-main .liquid-star{position:absolute;z-index:3;pointer-events:none;color:#fff;text-shadow:0 0 5px #90b7c9,0 0 13px #b9a9d3}
+.home-main .star-one{top:24%;right:10%;font-size:22px}.home-main .star-two{top:61%;left:4%;font-size:15px}.home-main .star-three{bottom:4%;right:18%;font-size:11px}
+@media(max-width:380px){.home-main .liquid-title h1.album-title em,.home-main .liquid-reflection{font-size:clamp(57px,16vw,67px)}.home-main .liquid-reflection{margin-bottom:-23px}}
+
+/* Fix: reflection must not create a second readable heading or layout row */
+.home-main .liquid-title{padding-bottom:11px}
+.home-main .liquid-title h1.album-title{position:relative;isolation:isolate}
+.home-main .liquid-title h1.album-title em{position:relative;z-index:2}
+.home-main .liquid-title h1.album-title em::after{content:"Aurora";position:absolute;left:0;right:0;top:93%;font:inherit;letter-spacing:inherit;line-height:1;transform:scaleY(-.28);transform-origin:top;background:linear-gradient(180deg,rgba(120,153,174,.35),transparent 85%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;opacity:.35;filter:blur(2.4px);pointer-events:none}
+.home-main .liquid-title .liquid-star{line-height:1}
+.home-main .liquid-title .star-one{top:30%;right:8%}
+.home-main .liquid-title .star-two{top:57%;left:5%}
+.home-main .liquid-title .star-three{bottom:12%;right:15%}
+
+/* More visible stardust surrounding the approved liquid chrome title */
+.home-main .liquid-title{overflow:visible}
+.home-main .liquid-title::after{content:"";position:absolute;pointer-events:none;z-index:1;inset:-25px -28px -10px;background:
+radial-gradient(circle at 9% 24%,#fff 0 1.5px,#a4c8d9 2px,transparent 5px),
+radial-gradient(circle at 20% 74%,#fff 0 1px,#d0b6e2 2px,transparent 4px),
+radial-gradient(circle at 86% 14%,#fff 0 1.5px,#c9b5e3 2.5px,transparent 5px),
+radial-gradient(circle at 94% 64%,#fff 0 1px,#9fcdd9 2px,transparent 5px),
+radial-gradient(circle at 74% 90%,#fff 0 1.5px,#d1b7dd 2.5px,transparent 5px),
+radial-gradient(circle at 36% 8%,#fff 0 1px,#a9d7d9 2px,transparent 4px),
+radial-gradient(circle at 6% 89%,#c4b5df 0 1.2px,transparent 3px),
+radial-gradient(circle at 99% 34%,#aacbd4 0 1.2px,transparent 3px);
+filter:drop-shadow(0 0 5px rgba(148,178,207,.85))}
+.home-main .liquid-title .liquid-star{z-index:4;color:#fff;text-shadow:0 0 2px #8babc3,0 0 7px #9abed1,0 0 15px #bda5da}
+.home-main .liquid-title .star-one{font-size:28px;top:25%;right:1%}
+.home-main .liquid-title .star-two{font-size:22px;top:64%;left:-3%}
+.home-main .liquid-title .star-three{font-size:18px;bottom:5%;right:11%}
+.home-main .liquid-title h1.album-title{z-index:3}
+@media(max-width:380px){.home-main .liquid-title::after{inset:-15px -10px -7px}.home-main .liquid-title .star-two{left:0}.home-main .liquid-title .star-one{right:1%}}
+
+/* Clearly visible pearlescent sparkle constellation — approved title unchanged */
+.home-main .liquid-title .stardust-field{position:absolute;inset:-28px -30px -18px;z-index:5;pointer-events:none;overflow:visible}
+.home-main .stardust-field i{position:absolute;display:block;width:14px;height:14px;opacity:.95;background:linear-gradient(135deg,#fefefe 0%,#fff 42%,#c8e4f0 55%,#e7d3f3 85%);clip-path:polygon(50% 0%,61% 38%,100% 50%,61% 61%,50% 100%,39% 61%,0 50%,39% 38%);filter:drop-shadow(0 0 4px #829fb9);animation:auroraTwinkle 3.5s ease-in-out infinite alternate}
+.home-main .stardust-field i:nth-child(1){left:4%;top:13%;width:25px;height:25px}
+.home-main .stardust-field i:nth-child(2){right:3%;top:19%;width:33px;height:33px;animation-delay:-1.3s}
+.home-main .stardust-field i:nth-child(3){left:0;top:58%;width:20px;height:20px;animation-delay:-2s}
+.home-main .stardust-field i:nth-child(4){right:0;top:69%;width:24px;height:24px;animation-delay:-.5s}
+.home-main .stardust-field i:nth-child(5){left:19%;top:2%;width:12px;height:12px}
+.home-main .stardust-field i:nth-child(6){right:24%;top:6%;width:15px;height:15px;animation-delay:-2.2s}
+.home-main .stardust-field i:nth-child(7){left:12%;bottom:9%;width:12px;height:12px}
+.home-main .stardust-field i:nth-child(8){right:17%;bottom:4%;width:18px;height:18px;animation-delay:-1.1s}
+.home-main .stardust-field i:nth-child(9){left:33%;top:18%;width:8px;height:8px}
+.home-main .stardust-field i:nth-child(10){right:34%;top:23%;width:9px;height:9px;animation-delay:-.9s}
+.home-main .stardust-field i:nth-child(11){left:25%;bottom:22%;width:7px;height:7px}
+.home-main .stardust-field i:nth-child(12){right:29%;bottom:19%;width:8px;height:8px;animation-delay:-2.6s}
+@keyframes auroraTwinkle{0%{opacity:.55;transform:scale(.78)}100%{opacity:1;transform:scale(1.18)}}
+@media(prefers-reduced-motion:reduce){.home-main .stardust-field i{animation:none}}
+
+/* Jacket: remove the visible milky-white outline; keep only a soft floating shadow */
+.home-main .hero img{border:0!important;outline:0!important;background:transparent;box-shadow:0 16px 34px rgba(58,85,113,.21),0 3px 10px rgba(70,95,120,.12);filter:none;border-radius:2px}
+
+/* Album artwork: completely flat, no frame, outline, glow, or shadow */
+.home-main .hero img{display:block;padding:0!important;margin:0 auto;border:0!important;outline:0!important;border-radius:0!important;box-shadow:none!important;filter:none!important;background:none!important}
