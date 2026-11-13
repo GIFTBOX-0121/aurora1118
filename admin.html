@@ -48,14 +48,15 @@
 
 .daily-kind-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: collapse;
-  margin-top: 12px;
-  font-size: 12px;
+  margin-top: 16px;
+  font-size: 15px;
 }
 
 .daily-kind-table th,
 .daily-kind-table td {
-  padding: 10px 5px;
+  padding: 16px 6px;
   text-align: right;
   border-bottom: 1px solid #e8e6ee;
   font-variant-numeric: tabular-nums;
@@ -64,10 +65,11 @@
 .daily-kind-table th:first-child,
 .daily-kind-table td:first-child {
   text-align: left;
+  width: 31%;
 }
 
 .daily-kind-table thead th {
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
@@ -85,12 +87,13 @@
 }
 
 .daily-card {
-  margin-bottom: 15px;
+  margin-bottom: 22px;
+  padding: 18px 12px;
 }
 
 .daily-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
+  margin: 0 0 12px;
+  font-size: 20px;
 }
 
 .matrix-section {
@@ -200,7 +203,7 @@
   <h2>日別集計</h2>
   <div id="daily"></div>
 
-  <h2>サービス × 日付</h2>
+  <h2>サイト別累計</h2>
   <div id="matrix"></div>
 
   <p class="subtle">
@@ -361,8 +364,21 @@ async function stats() {
     counts[key] = Number(item.gift_count);
   }
 
+  const presetDates = [
+    "2026-11-16",
+    "2026-11-17",
+    "2026-11-18",
+    "2026-11-19",
+    "2026-11-20",
+    "2026-11-21",
+    "2026-11-22"
+  ];
+
   const dates = [
-    ...new Set(allData.map(x => x.stat_date))
+    ...new Set([
+      ...allData.map(x => x.stat_date),
+      ...presetDates
+    ])
   ].sort().reverse();
 
   function count(date, service, kind) {
