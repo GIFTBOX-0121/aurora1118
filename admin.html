@@ -1,608 +1,355 @@
-
+ 
 <!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>管理 | Aurora GIFTBOX</title>
-
 <link rel="stylesheet" href="aurora.css">
 <script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <style>
-.kind-summary {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 12px;
-  margin: 15px 0 24px;
-}
-
-.kind-summary-card {
-  padding: 18px 12px;
-  border-radius: 14px;
-  text-align: center;
-}
-
-.kind-summary-card.album {
-  background: #DCEEFF;
-  color: #386C9B;
-}
-
-.kind-summary-card.single {
-  background: #E9DEFA;
-  color: #7656A4;
-}
-
-.kind-summary-card .kind-label {
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.kind-summary-card .kind-value {
-  margin-top: 8px;
-  font-size: 26px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-.daily-kind-table {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  margin-top: 16px;
-  font-size: 15px;
-}
-
-.daily-kind-table th,
-.daily-kind-table td {
-  padding: 16px 6px;
-  text-align: right;
-  border-bottom: 1px solid #e8e6ee;
-  font-variant-numeric: tabular-nums;
-}
-
-.daily-kind-table th:first-child,
-.daily-kind-table td:first-child {
-  text-align: left;
-  width: 31%;
-}
-
-.daily-kind-table thead th {
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.daily-kind-table .album-col {
-  color: #386C9B;
-}
-
-.daily-kind-table .single-col {
-  color: #7656A4;
-}
-
-.daily-kind-table .total-row {
-  font-weight: 700;
-  border-top: 2px solid #d6d2df;
-}
-
-.daily-card {
-  margin-bottom: 22px;
-  padding: 18px 12px;
-}
-
-.daily-card h3 {
-  margin: 0 0 12px;
-  font-size: 20px;
-}
-
-.matrix-section {
-  margin-top: 20px;
-}
-
-.matrix-section h3 {
-  font-size: 15px;
-  margin: 0 0 10px;
-}
-
-.matrix-table {
-  width: 100%;
-  border-collapse: collapse;
-  white-space: nowrap;
-  font-size: 12px;
-}
-
-.matrix-table th,
-.matrix-table td {
-  padding: 9px 10px;
-  border-bottom: 1px solid #e8e6ee;
-  text-align: right;
-}
-
-.matrix-table th:first-child {
-  text-align: left;
-}
-
-.matrix-table .total-row {
-  font-weight: 700;
-}
-
-.stats-error {
-  color: #c92c45;
-}
+.kind-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0 24px}
+.kind-summary-card{padding:18px 12px;border-radius:14px;text-align:center}
+.kind-summary-card.album{background:#DCEEFF;color:#386C9B}
+.kind-summary-card.single{background:#E9DEFA;color:#7656A4}
+.kind-summary-card .kind-label{font-size:12px;font-weight:600}
+.kind-summary-card .kind-value{margin-top:8px;font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.daily-card{margin-bottom:12px;padding:0;overflow:hidden}
+.daily-card summary{cursor:pointer;padding:13px 15px;font-size:16px;font-weight:700;list-style-position:inside}
+.daily-card summary::marker{font-size:12px}
+.daily-table-wrap{padding:0 10px 12px;overflow-x:auto}
+.daily-kind-table{width:100%;min-width:310px;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.daily-kind-table th,.daily-kind-table td{padding:12px 5px;text-align:right;border-bottom:1px solid #e8e6ee;font-variant-numeric:tabular-nums}
+.daily-kind-table th:first-child,.daily-kind-table td:first-child{text-align:left;width:31%}
+.daily-kind-table thead th{font-size:12px;white-space:nowrap}
+.daily-kind-table .album-col{color:#386C9B}
+.daily-kind-table .single-col{color:#7656A4}
+.daily-kind-table .total-row{font-weight:700;border-top:2px solid #d6d2df}
+.matrix-section{margin-top:20px}
+.matrix-section h3{font-size:15px;margin:0 0 10px}
+.matrix-table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:12px}
+.matrix-table th,.matrix-table td{padding:9px 10px;border-bottom:1px solid #e8e6ee;text-align:right}
+.matrix-table th:first-child{text-align:left}
+.matrix-table .total-row{font-weight:700}
+.stats-error{color:#c92c45}
 </style>
 </head>
-
 <body>
 <main>
-
-<header>
-  <a href="index.html">
-    <b>GIFTBOX</b>
-    <span class="eyebrow">/ AURORA</span>
-  </a>
-  <span class="eyebrow">STARGLOW</span>
-</header>
-
+<header><a href="index.html"><b>GIFTBOX</b> <span class="eyebrow">/ AURORA</span></a><span class="eyebrow">STARGLOW</span></header>
 <h1>GIFTBOX 管理</h1>
 
 <section id="login" class="panel">
-  <p>管理者ログイン</p>
-
-  <input
-    id="email"
-    type="email"
-    placeholder="メールアドレス"
-  >
-
-  <input
-    id="password"
-    type="password"
-    placeholder="パスワード"
-    style="margin-top:10px"
-  >
-
-  <div class="toolbar">
-    <span class="status" id="loginerr"></span>
-    <button class="primary" id="loginbtn">
-      ログイン
-    </button>
-  </div>
+<p>管理者ログイン</p>
+<input id="email" type="email" placeholder="メールアドレス">
+<input id="password" type="password" placeholder="パスワード" style="margin-top:10px">
+<div class="toolbar">
+<span class="status" id="loginerr"></span>
+<button class="primary" id="loginbtn">ログイン</button>
+</div>
 </section>
 
 <section id="dashboard" class="hide">
+<div class="toolbar">
+<strong>累計 <span id="total">0</span> 件</strong>
+<button class="secondary" id="logout">ログアウト</button>
+</div>
 
-  <div class="toolbar">
-    <strong>
-      累計 <span id="total">0</span> 件
-    </strong>
+<div class="kind-summary">
+<div class="kind-summary-card album"><div class="kind-label">アルバム一括</div><div class="kind-value"><span id="albumTotal">0</span>件</div></div>
+<div class="kind-summary-card single"><div class="kind-label">Aurora単曲</div><div class="kind-value"><span id="singleTotal">0</span>件</div></div>
+</div>
 
-    <button class="secondary" id="logout">
-      ログアウト
-    </button>
-  </div>
+<h2>日別集計</h2>
+<div id="daily"></div>
 
-  <div class="kind-summary">
+<h2>サイト別累計</h2>
+<div id="matrix"></div>
 
-    <div class="kind-summary-card album">
-      <div class="kind-label">アルバム一括</div>
-      <div class="kind-value">
-        <span id="albumTotal">0</span>件
-      </div>
-    </div>
-
-    <div class="kind-summary-card single">
-      <div class="kind-label">Aurora単曲</div>
-      <div class="kind-value">
-        <span id="singleTotal">0</span>件
-      </div>
-    </div>
-
-  </div>
-
-  <h2>日別集計</h2>
-  <div id="daily"></div>
-
-  <h2>サイト別累計</h2>
-  <div id="matrix"></div>
-
-  <p class="subtle">
-    ※未受け取りノートと種類未設定の投稿は、
-    すべての集計から除外しています。
-  </p>
-
+<p class="subtle">※未受け取りノートと種類未設定の投稿は、すべての集計から除外しています。</p>
 </section>
-
 </main>
 
 <script>
-const db = supabase.createClient(
-  GIFTBOX_CONFIG.supabaseUrl,
-  GIFTBOX_CONFIG.supabaseKey
+const db=supabase.createClient(
+ GIFTBOX_CONFIG.supabaseUrl,
+ GIFTBOX_CONFIG.supabaseKey
 );
 
-const labels = {
-  itunes: "iTunes",
-  recochoku: "レコチョク",
-  mumo: "mu-mo"
+const labels={
+ itunes:"iTunes",
+ recochoku:"レコチョク",
+ mumo:"mu-mo"
+};
+const services=["itunes","recochoku","mumo"];
+const kinds=["album","single"];
+const login=document.getElementById("login");
+const dash=document.getElementById("dashboard");
+
+function el(tag,cls,txt){
+ const n=document.createElement(tag);
+ if(cls)n.className=cls;
+ if(txt!==undefined)n.textContent=txt;
+ return n;
+}
+
+function number(value){
+ return Number(value||0).toLocaleString("ja-JP");
+}
+
+function sum(values){
+ return values.reduce((a,b)=>a+b,0);
+}
+
+function shortDate(date){
+ const parts=date.split("-");
+ return Number(parts[1])+"/"+Number(parts[2]);
+}
+
+async function verify(){
+ const {
+  data:{user},
+  error:authError
+ }=await db.auth.getUser();
+
+ if(authError||!user){
+  login.classList.remove("hide");
+  dash.classList.add("hide");
+  return;
+ }
+
+ const {data,error}=await db
+  .from("gift_admins")
+  .select("user_id")
+  .eq("user_id",user.id)
+  .maybeSingle();
+
+ if(error||!data){
+  login.classList.remove("hide");
+  dash.classList.add("hide");
+  document.getElementById("loginerr").textContent=
+   "管理者として登録されていません";
+  return;
+ }
+
+ document.getElementById("loginerr").textContent="";
+ login.classList.add("hide");
+ dash.classList.remove("hide");
+ await stats();
+}
+
+document.getElementById("loginbtn").onclick=async()=>{
+ const email=document.getElementById("email").value;
+ const password=document.getElementById("password").value;
+
+ const {error}=await db.auth.signInWithPassword({
+  email,password
+ });
+
+ if(error){
+  document.getElementById("loginerr").textContent=
+   "ログインできませんでした";
+  return;
+ }
+ await verify();
 };
 
-const services = [
-  "itunes",
-  "recochoku",
-  "mumo"
-];
-
-const kinds = [
-  "album",
-  "single"
-];
-
-const login = document.getElementById("login");
-const dash = document.getElementById("dashboard");
-
-function el(tag, cls, txt) {
-  const n = document.createElement(tag);
-
-  if (cls) n.className = cls;
-  if (txt !== undefined) n.textContent = txt;
-
-  return n;
-}
-
-function number(value) {
-  return Number(value || 0).toLocaleString("ja-JP");
-}
-
-function sum(values) {
-  return values.reduce((a,b) => a + b, 0);
-}
-
-async function verify() {
-  const {
-    data: { user },
-    error: authError
-  } = await db.auth.getUser();
-
-  if (authError || !user) {
-    login.classList.remove("hide");
-    dash.classList.add("hide");
-    return;
-  }
-
-  const { data, error } = await db
-    .from("gift_admins")
-    .select("user_id")
-    .eq("user_id", user.id)
-    .maybeSingle();
-
-  if (error || !data) {
-    login.classList.remove("hide");
-    dash.classList.add("hide");
-
-    document.getElementById("loginerr").textContent =
-      "管理者として登録されていません";
-    return;
-  }
-
-  document.getElementById("loginerr").textContent = "";
-
-  login.classList.add("hide");
-  dash.classList.remove("hide");
-
-  await stats();
-}
-
-document.getElementById("loginbtn").onclick = async () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  const { error } = await db.auth.signInWithPassword({
-    email,
-    password
-  });
-
-  if (error) {
-    document.getElementById("loginerr").textContent =
-      "ログインできませんでした";
-    return;
-  }
-
-  await verify();
+document.getElementById("logout").onclick=async()=>{
+ await db.auth.signOut();
+ await verify();
 };
 
-document.getElementById("logout").onclick = async () => {
-  await db.auth.signOut();
-  await verify();
-};
+async function stats(){
+ const daily=document.getElementById("daily");
+ const matrix=document.getElementById("matrix");
+ daily.textContent="集計を読み込み中…";
+ matrix.textContent="";
 
-async function stats() {
-  const daily = document.getElementById("daily");
-  const matrix = document.getElementById("matrix");
+ const allData=[];
+ const batchSize=1000;
+ let offset=0;
 
-  daily.textContent = "集計を読み込み中…";
-  matrix.textContent = "";
+ while(true){
+  const {data,error}=await db
+   .from("gift_daily_kind_stats")
+   .select("stat_date,service,album_kind,gift_count")
+   .order("stat_date",{ascending:false})
+   .order("service",{ascending:true})
+   .order("album_kind",{ascending:true})
+   .range(offset,offset+batchSize-1);
 
-  const allData = [];
-  const batchSize = 1000;
-  let offset = 0;
-
-  while (true) {
-    const { data, error } = await db
-      .from("gift_daily_kind_stats")
-      .select("stat_date,service,album_kind,gift_count")
-      .order("stat_date", { ascending: false })
-      .order("service", { ascending: true })
-      .order("album_kind", { ascending: true })
-      .range(offset, offset + batchSize - 1);
-
-    if (error) {
-      daily.textContent =
-        "集計を取得できません: " + error.message;
-      daily.className = "stats-error";
-      return;
-    }
-
-    allData.push(...data);
-
-    if (data.length < batchSize) break;
-
-    offset += batchSize;
+  if(error){
+   daily.textContent=
+    "集計を取得できません: "+error.message;
+   daily.className="stats-error";
+   return;
   }
 
-  daily.className = "";
+  allData.push(...data);
+  if(data.length<batchSize)break;
+  offset+=batchSize;
+ }
 
-  const counts = {};
+ daily.className="";
 
-  for (const item of allData) {
-    const key = [
-      item.stat_date,
-      item.service,
-      item.album_kind
-    ].join("|");
+ const counts={};
+ for(const item of allData){
+  const key=[
+   item.stat_date,
+   item.service,
+   item.album_kind
+  ].join("|");
+  counts[key]=Number(item.gift_count);
+ }
 
-    counts[key] = Number(item.gift_count);
+ const presetDates=[
+  "2026-11-16",
+  "2026-11-17",
+  "2026-11-18",
+  "2026-11-19",
+  "2026-11-20",
+  "2026-11-21",
+  "2026-11-22"
+ ];
+
+ const dates=[
+  ...new Set([
+   ...allData.map(x=>x.stat_date),
+   ...presetDates
+  ])
+ ].sort();
+
+ function count(date,service,kind){
+  return counts[
+   [date,service,kind].join("|")
+  ]||0;
+ }
+
+ function serviceTotal(date,service){
+  return sum(kinds.map(kind=>count(date,service,kind)));
+ }
+
+ function dateKindTotal(date,kind){
+  return sum(services.map(service=>count(date,service,kind)));
+ }
+
+ function dateTotal(date){
+  return sum(services.map(service=>serviceTotal(date,service)));
+ }
+
+ function kindTotal(kind){
+  return sum(dates.map(date=>dateKindTotal(date,kind)));
+ }
+
+ const albumTotal=kindTotal("album");
+ const singleTotal=kindTotal("single");
+ const grandTotal=albumTotal+singleTotal;
+
+ document.getElementById("total").textContent=number(grandTotal);
+ document.getElementById("albumTotal").textContent=number(albumTotal);
+ document.getElementById("singleTotal").textContent=number(singleTotal);
+
+ daily.textContent="";
+
+ for(const date of dates){
+  const details=el("details","note daily-card");
+  const summary=el("summary","",shortDate(date));
+  details.append(summary);
+
+  const wrap=el("div","daily-table-wrap");
+  const table=el("table","daily-kind-table");
+  const thead=el("thead");
+  const head=el("tr");
+
+  head.append(el("th","","サービス"));
+  head.append(el("th","album-col","アルバム"));
+  head.append(el("th","single-col","単曲"));
+  head.append(el("th","","合計"));
+  thead.append(head);
+  table.append(thead);
+
+  const tbody=el("tbody");
+
+  for(const service of services){
+   const row=el("tr");
+   row.append(el("th","",labels[service]));
+   row.append(el("td","album-col",number(count(date,service,"album"))));
+   row.append(el("td","single-col",number(count(date,service,"single"))));
+   row.append(el("td","",number(serviceTotal(date,service))));
+   tbody.append(row);
   }
 
-  const presetDates = [
-    "2026-11-16",
-    "2026-11-17",
-    "2026-11-18",
-    "2026-11-19",
-    "2026-11-20",
-    "2026-11-21",
-    "2026-11-22"
-  ];
+  const totalRow=el("tr","total-row");
+  totalRow.append(el("th","","合計"));
+  totalRow.append(el("td","album-col",number(dateKindTotal(date,"album"))));
+  totalRow.append(el("td","single-col",number(dateKindTotal(date,"single"))));
+  totalRow.append(el("td","",number(dateTotal(date))));
 
-  const dates = [
-    ...new Set([
-      ...allData.map(x => x.stat_date),
-      ...presetDates
-    ])
-  ].sort().reverse();
+  tbody.append(totalRow);
+  table.append(tbody);
+  wrap.append(table);
+  details.append(wrap);
+  daily.append(details);
+ }
 
-  function count(date, service, kind) {
-    return counts[
-      [date, service, kind].join("|")
-    ] || 0;
+ matrix.textContent="";
+
+ for(const kind of kinds){
+  const section=el("section","matrix-section");
+  section.append(el(
+   "h3","",
+   kind==="album"?"アルバム一括":"Aurora単曲"
+  ));
+
+  const scroll=el("div","scroll panel");
+  const table=el("table","matrix-table");
+  const head=el("tr");
+
+  head.append(el("th","","サービス"));
+  for(const date of dates){
+   head.append(el("th","",shortDate(date)));
+  }
+  head.append(el("th","","合計"));
+  table.append(head);
+
+  for(const service of services){
+   const row=el("tr");
+   row.append(el("th","",labels[service]));
+
+   for(const date of dates){
+    row.append(el(
+     "td","",
+     number(count(date,service,kind))
+    ));
+   }
+
+   row.append(el(
+    "td","",
+    number(sum(dates.map(date=>count(date,service,kind))))
+   ));
+   table.append(row);
   }
 
-  function serviceTotal(date, service) {
-    return sum(
-      kinds.map(kind => count(date, service, kind))
-    );
+  const totalRow=el("tr","total-row");
+  totalRow.append(el("th","","合計"));
+
+  for(const date of dates){
+   totalRow.append(el(
+    "td","",
+    number(dateKindTotal(date,kind))
+   ));
   }
 
-  function dateKindTotal(date, kind) {
-    return sum(
-      services.map(service => count(date, service, kind))
-    );
-  }
-
-  function dateTotal(date) {
-    return sum(
-      services.map(service => serviceTotal(date, service))
-    );
-  }
-
-  function kindTotal(kind) {
-    return sum(
-      dates.map(date => dateKindTotal(date, kind))
-    );
-  }
-
-  const albumTotal = kindTotal("album");
-  const singleTotal = kindTotal("single");
-  const grandTotal = albumTotal + singleTotal;
-
-  document.getElementById("total").textContent =
-    number(grandTotal);
-
-  document.getElementById("albumTotal").textContent =
-    number(albumTotal);
-
-  document.getElementById("singleTotal").textContent =
-    number(singleTotal);
-
-  daily.textContent = "";
-
-  if (!dates.length) {
-    daily.textContent =
-      "集計対象のギフトはまだありません。";
-  }
-
-  for (const date of dates) {
-    const card = el("div", "note daily-card");
-
-    card.append(el("h3", "", date));
-
-    const table = el("table", "daily-kind-table");
-    const thead = el("thead");
-    const head = el("tr");
-
-    head.append(el("th", "", "サービス"));
-    head.append(el("th", "album-col", "アルバム"));
-    head.append(el("th", "single-col", "単曲"));
-    head.append(el("th", "", "合計"));
-
-    thead.append(head);
-    table.append(thead);
-
-    const tbody = el("tbody");
-
-    for (const service of services) {
-      const row = el("tr");
-
-      row.append(
-        el("th", "", labels[service])
-      );
-
-      row.append(
-        el(
-          "td",
-          "album-col",
-          number(count(date, service, "album"))
-        )
-      );
-
-      row.append(
-        el(
-          "td",
-          "single-col",
-          number(count(date, service, "single"))
-        )
-      );
-
-      row.append(
-        el(
-          "td",
-          "",
-          number(serviceTotal(date, service))
-        )
-      );
-
-      tbody.append(row);
-    }
-
-    const totalRow = el("tr", "total-row");
-
-    totalRow.append(el("th", "", "合計"));
-
-    totalRow.append(
-      el(
-        "td",
-        "album-col",
-        number(dateKindTotal(date, "album"))
-      )
-    );
-
-    totalRow.append(
-      el(
-        "td",
-        "single-col",
-        number(dateKindTotal(date, "single"))
-      )
-    );
-
-    totalRow.append(
-      el("td", "", number(dateTotal(date)))
-    );
-
-    tbody.append(totalRow);
-    table.append(tbody);
-    card.append(table);
-    daily.append(card);
-  }
-
-  matrix.textContent = "";
-
-  for (const kind of kinds) {
-    const section = el("section", "matrix-section");
-
-    section.append(
-      el(
-        "h3",
-        "",
-        kind === "album"
-          ? "アルバム一括"
-          : "Aurora単曲"
-      )
-    );
-
-    const scroll = el("div", "scroll panel");
-    const table = el("table", "matrix-table");
-    const head = el("tr");
-
-    head.append(el("th", "", "サービス"));
-
-    for (const date of dates) {
-      head.append(el("th", "", date));
-    }
-
-    head.append(el("th", "", "合計"));
-    table.append(head);
-
-    for (const service of services) {
-      const row = el("tr");
-
-      row.append(
-        el("th", "", labels[service])
-      );
-
-      for (const date of dates) {
-        row.append(
-          el(
-            "td",
-            "",
-            number(count(date, service, kind))
-          )
-        );
-      }
-
-      row.append(
-        el(
-          "td",
-          "",
-          number(
-            sum(
-              dates.map(date =>
-                count(date, service, kind)
-              )
-            )
-          )
-        )
-      );
-
-      table.append(row);
-    }
-
-    const totalRow = el("tr", "total-row");
-
-    totalRow.append(el("th", "", "合計"));
-
-    for (const date of dates) {
-      totalRow.append(
-        el(
-          "td",
-          "",
-          number(dateKindTotal(date, kind))
-        )
-      );
-    }
-
-    totalRow.append(
-      el("td", "", number(kindTotal(kind)))
-    );
-
-    table.append(totalRow);
-    scroll.append(table);
-    section.append(scroll);
-    matrix.append(section);
-  }
+  totalRow.append(el("td","",number(kindTotal(kind))));
+  table.append(totalRow);
+  scroll.append(table);
+  section.append(scroll);
+  matrix.append(section);
+ }
 }
 
 verify();
 </script>
-
 </body>
 </html>
