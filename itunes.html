@@ -67,15 +67,26 @@
   min-height: 38px;
 }
 
+/* 投稿一覧の種類タグ */
 .album-kind-tag {
   display: inline-block;
   margin-left: 8px;
   padding: 3px 9px;
   border-radius: 999px;
-  background: #e9e5f2;
-  color: #40394e;
   font-size: 11px;
   font-weight: 600;
+}
+
+/* アルバム一括：薄い青 */
+.album-kind-tag.album {
+  background: #DCEEFF;
+  color: #386C9B;
+}
+
+/* Aurora単曲：薄い紫 */
+.album-kind-tag.single {
+  background: #E9DEFA;
+  color: #7656A4;
 }
 
 .note-top {
@@ -317,7 +328,7 @@ async function load() {
       top.append(
         el(
           "span",
-          "album-kind-tag",
+          "album-kind-tag " + item.album_kind,
           item.album_kind === "album"
             ? "アルバム一括"
             : "Aurora単曲"
